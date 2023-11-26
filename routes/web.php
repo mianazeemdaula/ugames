@@ -18,8 +18,18 @@ Route::get('/', function () {
 });
 
 
+Route::get('/page/privacy-policy', function(){
+    return view('privacy_policy');
+});
+
+Route::get('/page/terms-conditions', function(){
+    return view('terms_conditions');
+});
+
 Route::get('/auth/redirect', function () {
-    return Socialite::driver('facebook')->redirect();
+    return Socialite::driver('facebook')
+    // ->scopes(['publish_to_group', 'groups_access_member_info'])
+    ->redirect();
 });
  
 Route::get('/auth/callback', function () {
